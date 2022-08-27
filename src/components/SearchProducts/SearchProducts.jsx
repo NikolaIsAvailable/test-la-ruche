@@ -1,10 +1,37 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import './searchProducts.css'
 
 const SearchProducts = () => {
+    const [searchBarValue, setSearchBarValue] = useState('')
+    const [data, setData] = useState()
+    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
+
+    const getData = async () => {
+        try {
+            setLoading(true)
+            const response = await axios.get(`https://world.openfoodfacts.org/cgi/search.pl?search_terms=${searchBarValue}&search_simple=1&action=process&fields=id%2Cproduct_name%2Cimage_front_small_url&json=1&page=1&page_size=24`)
+            setData(response.data)
+        } catch(error) {
+            setError(error)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        getData();
+    }, [searchBarValue])
+
   return (
     <div id='search_products'>
-        
+        <input onChange={(e) => setSearchBarValue(e.target.value)} value={searchBarValue} type="text" id="search_products_field" placeholder='Chercher un produit'/>
+        <ul id='product_list'>
+            {data && data.products.map((food) => {
+                return console.log(food)
+            })}
+        </ul>
     </div>
   )
 }
