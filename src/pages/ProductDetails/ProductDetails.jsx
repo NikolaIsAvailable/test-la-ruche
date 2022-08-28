@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import DetailProductCard from '../../components/DetailProductCard/DetailProductCard'
+import Error from '../../components/Error/Error'
 import Header from '../../components/Header/Header'
 import SkeletonLoader from '../../components/SkeletonLoader/SkeletonLoader'
 
@@ -28,7 +29,8 @@ const ProductDetails = () => {
   return (
     <>
         <Header />
-        { loading === false && data ? <DetailProductCard details={data} /> : <SkeletonLoader />}
+        {error && <Error />}
+        { !loading && data ? <DetailProductCard details={data} /> : <SkeletonLoader />}
     </>    
   )
 }

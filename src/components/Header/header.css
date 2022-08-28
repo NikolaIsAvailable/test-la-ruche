@@ -18,7 +18,8 @@
     margin: 0;
 }
 
-#title_header > span {
+#title_header::after {
+    content: '';
     display: block;
     width: 100px;
     height: 1px;
