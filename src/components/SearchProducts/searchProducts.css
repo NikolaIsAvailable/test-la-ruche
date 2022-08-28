@@ -1,3 +1,50 @@
 #search_products {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#search_bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 250px;
+    padding: 8px 15px;
+    border-radius: 25px;
+}
+
+#search_bar > input {
+    background-color: white;
+    border: none;
+    width: 200px;
+    height: 30px
+}
+
+#search_bar > input:focus {
+    outline: none;
+}
+
+#search_icon {
+    color: black;   
+    font-size: 18px;
+}
+
+#product_list {
+    padding: 0 .5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 583px) {
+    #product_list {
+        padding: 0 .5rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

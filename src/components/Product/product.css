@@ -1,3 +1,77 @@
 .product {
-    
+    background-color: white;
+    padding-top: 0;
+    padding-bottom: 1rem;
+    margin: 1rem;
+    width: 250px;
+    height: 300px;
+    animation: fadeIn .5s forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid rgb(93, 87, 75);
+    box-shadow: 0px 2px 5px #5c272f;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+}
+
+.product > h2 {
+    text-align: start;
+    color: #5c272f;
+    margin-block-start: 0;
+    margin: 0 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.product > img {
+    height: 175px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 2px 3px #0000005c;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.product > a {
+    transition: all .3s;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color: #5c272f;
+    padding: 5px 7px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.product > a::before {
+    transition: all .3s;
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    width: 0px;
+    height: .5px;
+    border-radius: 1px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+.product > a:hover::before {
+    width: 79px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-3px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
