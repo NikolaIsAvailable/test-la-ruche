@@ -8,7 +8,8 @@ const DetailProductCard = ({ details }) => {
     const formatAllergen = (allergen) => {
         const allergenByLanguage = allergen.split(':')
         let finalSentence = allergenByLanguage[0] === 'en' ? `${allergenByLanguage[1]} (anglais)` : `${allergenByLanguage[1]} (français)` 
-        return finalSentence
+
+        return finalSentence;
     }
 
     return (
@@ -29,7 +30,7 @@ const DetailProductCard = ({ details }) => {
                 <div>
                     <h3>Allérgies</h3>
                     <ul>
-                        {detailObj.allergens_hierarchy || detailObj.allergens_hierarchy.length > 0
+                        {detailObj.allergens_hierarchy && detailObj.allergens_hierarchy.length > 0
                             ? detailObj.allergens_hierarchy.map((allergen, index) => {
                                 return <li key={index}>{formatAllergen(allergen)}</li>
                             })
